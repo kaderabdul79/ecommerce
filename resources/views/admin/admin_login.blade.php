@@ -38,8 +38,13 @@
                 <div id="login-row" class="row justify-content-center align-items-center">
                     <div id="login-column" class="col-md-6">
                         <div id="login-box" class="col-md-12">
-                            <form id="login-form" class="form" action="" method="post">
+                            <form id="login-form" class="form" action="{{route('admin-dashboard')}}" method="post">
+                                @csrf
                                 <h3 class="text-center text-info">Login</h3>
+                                @if ($message = Session::get('message'))
+                                    <strong>{{ $message }}</strong>
+                                    {{-- {{Session::put('message',null)}} --}}
+                                @endif
                                 <div class="form-group">
                                     <label for="email" class="text-info">email:</label><br>
                                     <input type="text" name="email" id="email" class="form-control">
